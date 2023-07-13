@@ -1,8 +1,8 @@
-/*Business task given: Use data to give which employee get raises based on their sales performance.Bonues will be awarded to those employees who are responsible for the five highest order amounts.
+/*Business task given: Use data to give which employee get raises based on their sales performance. Bonuses will be awarded to those employees who are responsible for the five highest order amounts.
 Find columns and tables needed for this business question.*/
 
 /*Tables needed from the database:
-Employees, Orders, Order details and Products tables.*/ 
+Employees, Orders, Order details, and Products tables.*/ 
 SELECT *
 FROM employees
 
@@ -57,11 +57,11 @@ GROUP BY orders.orderid
 ORDER BY salesamt DESC
 LIMIT 5
 
--- Only three employees will have the top five highest sales amount and only two employees have two of the highest sales.
+-- Only three employees will have the top five highest sales amount.
 
 
 
---Proposed Solution: A list of  5 employees who have order with the highest sales amount.
+--Proposed Solution: A list of  5 employees who have orders with the highest sales amount.
 SELECT lastname, firstname, orders.orderid, products.productid,quantity, price, sum(quantity * price) AS SalesAmt 
 FROM employees
 	INNER JOIN orders 
